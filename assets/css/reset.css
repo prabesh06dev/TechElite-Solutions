@@ -1,0 +1,73 @@
+/* ==========================================
+   Reset & Base Styles
+========================================== */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap');
+
+/* Reset */
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Smooth Scroll */
+
+html{
+    scroll-behavior: smooth;
+}
+
+/* Body */
+
+body{
+    font-family: var(--body-font);
+    background: var(--bg);
+    color: var(--text-light);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* Headings */
+
+h1,h2,h3,h4,h5,h6{
+    font-family: var(--heading-font);
+    color: var(--text);
+}
+
+/* Images */
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+/* Links */
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* Lists */
+
+ul{
+    list-style:none;
+}
+
+/* Container */
+
+.container{
+    width:90%;
+    max-width:var(--container-width);
+    margin:auto;
+}
+
+/* Section */
+
+section{
+    padding:var(--section-padding) 0;
+}

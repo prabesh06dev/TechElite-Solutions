@@ -1,0 +1,295 @@
+/* ==========================================
+   Navbar
+========================================== */
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(15, 23, 42, 0.90);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar{
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ==========================================
+   Logo
+========================================== */
+
+.logo{
+    font-family: var(--heading-font);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.5px;
+}
+
+.logo span{
+    color: var(--primary);
+}
+
+.logo-icon {
+    width: 82px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.logo-icon img {
+    width: 200px;
+    height: 75px;
+    object-fit: contain;
+    display: block;
+}
+
+
+/* ==========================================
+   Navigation Menu
+========================================== */
+
+.nav-menu{
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.nav-menu a{
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-menu a:hover{
+    color: var(--primary);
+}
+
+.nav-menu a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: var(--transition);
+}
+
+.nav-menu a:hover::after{
+    width: 100%;
+}
+
+
+/* ==========================================
+   CTA Button
+========================================== */
+
+.btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 20px 45px rgba(37,99,235,.45);
+}
+
+
+/* ==========================================
+   Active & Hover Effects
+========================================== */
+
+.nav-menu a.active{
+    color: var(--primary);
+}
+
+.nav-menu a.active::after{
+    width: 100%;
+}
+
+.nav-menu a{
+    padding: 8px 0;
+}
+
+/* ==========================================
+   Mobile Navbar
+========================================== */
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+
+/* ==========================================
+   Tablet
+========================================== */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        height: 70px;
+    }
+
+    .nav-menu {
+        gap: 20px;
+    }
+
+    .nav-menu a {
+        font-size: 0.9rem;
+    }
+
+    .navbar > .btn {
+        padding: 10px 18px;
+        font-size: 0.85rem;
+    }
+
+    .logo-icon {
+        width: 65px;
+        height: 50px;
+    }
+
+    .logo-icon img {
+        width: 140px;
+        height: 55px;
+    }
+
+}
+
+
+/* ==========================================
+   Mobile
+========================================== */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        height: 70px;
+        width: 100%;
+        padding: 0 5%;
+    }
+
+
+    /* Logo */
+
+    .logo {
+        display: flex;
+        align-items: center;
+        max-width: 170px;
+    }
+
+    .logo-icon {
+        width: 55px;
+        height: 45px;
+    }
+
+    .logo-icon img {
+        width: 115px;
+        height: 45px;
+    }
+
+
+    /* Hide desktop menu */
+
+    .nav-menu {
+        display: none;
+    }
+
+
+    /* Hide Get Started */
+
+    .navbar > .btn {
+        display: none;
+    }
+
+
+    /* Hamburger */
+
+    .nav-toggle {
+        display: block;
+        margin-left: auto;
+    }
+
+}
+
+
+/* ==========================================
+   Mobile Menu Open
+========================================== */
+
+@media (max-width: 700px) {
+
+    .nav-menu.active {
+
+        display: flex;
+
+        position: absolute;
+
+        top: 70px;
+        left: 0;
+
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 0;
+
+        padding: 15px 0 25px;
+
+        background: rgba(15, 23, 42, 0.98);
+
+        backdrop-filter: blur(15px);
+
+        border-top: 1px solid var(--border);
+
+        box-shadow: 0 15px 30px rgba(0,0,0,.25);
+
+    }
+
+    .nav-menu.active li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-menu.active a {
+
+        display: block;
+
+        width: 100%;
+
+        padding: 14px 20px;
+
+    }
+
+    .nav-menu.active a:hover {
+
+        background: rgba(255,255,255,.05);
+
+    }
+
+}

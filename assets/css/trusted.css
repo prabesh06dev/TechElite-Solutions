@@ -1,0 +1,345 @@
+/* ==========================================
+   TECH ELITE AT A GLANCE
+========================================== */
+
+.tech-glance{
+    padding:100px 0;
+
+    background:#0f172a;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+
+/* Background Glow */
+
+.tech-glance::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    top:-250px;
+    left:-150px;
+
+    background:radial-gradient(
+        circle,
+        rgba(37,99,235,.22),
+        transparent 70%
+    );
+
+    border-radius:50%;
+
+    pointer-events:none;
+}
+
+.tech-glance::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+    height:450px;
+
+    bottom:-250px;
+    right:-150px;
+
+    background:radial-gradient(
+        circle,
+        rgba(124,58,237,.18),
+        transparent 70%
+    );
+
+    border-radius:50%;
+
+    pointer-events:none;
+}
+
+
+/* ==========================================
+   SECTION HEADING
+========================================== */
+
+.tech-glance .section-heading{
+
+    text-align:center;
+
+    max-width:700px;
+
+    margin:0 auto 60px;
+
+    position:relative;
+
+    z-index:2;
+}
+
+.tech-glance .section-tag{
+
+    display:inline-block;
+
+    color:#60a5fa;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.5px;
+
+    margin-bottom:12px;
+}
+
+.tech-glance .section-heading h2{
+
+    font-size:2.8rem;
+
+    margin:0 0 15px;
+
+    color:#ffffff;
+}
+
+.tech-glance .section-heading h2 span{
+
+    color:#3b82f6;
+}
+
+.tech-glance .section-heading p{
+
+    color:#94a3b8;
+
+    font-size:1rem;
+
+    line-height:1.7;
+}
+
+
+/* ==========================================
+   GRID
+========================================== */
+
+.glance-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap:25px;
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+/* ==========================================
+   CARD
+========================================== */
+
+.glance-card{
+
+    position:relative;
+
+    padding:30px;
+
+    min-height:300px;
+
+    background:rgba(30,41,59,.65);
+
+    border:1px solid rgba(148,163,184,.12);
+
+    border-radius:22px;
+
+    backdrop-filter:blur(15px);
+
+    transition:.4s ease;
+
+    overflow:hidden;
+}
+
+.glance-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#2563eb;
+
+    box-shadow:
+        0 20px 45px rgba(37,99,235,.18);
+
+}
+
+
+/* ==========================================
+   TOP AREA
+========================================== */
+
+.glance-top{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:30px;
+}
+
+.glance-number{
+
+    font-size:13px;
+
+    font-weight:700;
+
+    color:#475569;
+
+    letter-spacing:1px;
+}
+
+
+/* ==========================================
+   ICON
+========================================== */
+
+.glance-icon{
+
+    width:60px;
+    height:60px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:17px;
+
+    background:rgba(37,99,235,.12);
+
+    border:1px solid rgba(59,130,246,.2);
+
+    color:#60a5fa;
+
+    font-size:23px;
+
+    transition:.3s ease;
+}
+
+.glance-card:hover .glance-icon{
+
+    background:#2563eb;
+
+    color:white;
+
+    transform:scale(1.08);
+
+    box-shadow:
+        0 10px 25px rgba(37,99,235,.35);
+}
+
+
+/* ==========================================
+   CARD CONTENT
+========================================== */
+
+.glance-card h3{
+
+    color:#ffffff;
+
+    font-size:20px;
+
+    margin-bottom:12px;
+}
+
+.glance-card p{
+
+    color:#94a3b8;
+
+    font-size:14px;
+
+    line-height:1.7;
+
+    margin-bottom:25px;
+}
+
+
+/* ==========================================
+   TAGS
+========================================== */
+
+.glance-tags{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+}
+
+.glance-tags span{
+
+    padding:6px 11px;
+
+    border-radius:20px;
+
+    background:rgba(37,99,235,.10);
+
+    border:1px solid rgba(59,130,246,.15);
+
+    color:#93c5fd;
+
+    font-size:12px;
+
+    font-weight:600;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:1100px){
+
+    .glance-grid{
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .tech-glance{
+
+        padding:70px 20px;
+
+    }
+
+    .tech-glance .section-heading h2{
+
+        font-size:2.2rem;
+
+    }
+
+    .glance-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .glance-card{
+
+        min-height:auto;
+
+    }
+
+}

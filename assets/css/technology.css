@@ -1,0 +1,88 @@
+/* ==========================================
+   Technology Stack
+========================================== */
+
+
+.tech-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+
+
+.tech-card{
+
+    padding:35px 20px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-md);
+
+    color:var(--text);
+
+    transition:.3s ease;
+
+}
+
+
+
+.tech-card i{
+
+    display:block;
+
+    font-size:2.8rem;
+
+    color:var(--primary);
+
+    margin-bottom:15px;
+
+}
+
+
+
+.tech-card span{
+
+    font-size:1.2rem;
+
+    font-weight:600;
+
+}
+
+
+
+.tech-card:hover{
+
+    transform:translateY(-10px);
+
+    background:rgba(37,99,235,.15);
+
+    border-color:var(--primary);
+
+    box-shadow:0 15px 40px rgba(37,99,235,.25);
+
+}
+
+
+
+.tech-card:hover i{
+
+    transform:scale(1.2);
+
+}
+
+
+
+.tech-card i{
+
+    transition:.3s ease;
+
+}

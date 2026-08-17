@@ -1,0 +1,164 @@
+/* ==========================================
+   Why Choose Us
+========================================== */
+
+
+.why-container{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:80px;
+
+    align-items:center;
+
+}
+
+
+
+.why-content h2{
+
+    font-size:3rem;
+
+    margin:20px 0;
+
+}
+
+
+
+.why-content p{
+
+    color:var(--text-light);
+
+}
+
+
+
+.why-list{
+
+    margin-top:35px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+
+.why-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+
+
+.why-item span{
+
+    width:35px;
+
+    height:35px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--primary);
+
+    border-radius:50%;
+
+    color:white;
+
+}
+
+
+.why-item i{
+
+    font-size:.9rem;
+
+}
+
+
+
+.why-card{
+
+    padding:50px;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-lg);
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+
+    transition:.4s ease;
+
+}
+
+
+.why-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:var(--primary);
+
+}
+
+
+
+.why-card h3{
+
+    font-size:1.5rem;
+
+}
+
+
+
+.experience-number{
+
+    font-size:5rem;
+
+    font-weight:800;
+
+    margin:20px 0;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    background-clip: text;
+    -webkit-background-clip:text;
+
+    color:transparent;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.experience-number small{
+
+    display:block;
+
+    font-size:1rem;
+
+    font-weight:500;
+
+    color:var(--text-light);
+
+    margin-top:10px;
+
+}
