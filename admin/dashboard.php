@@ -22,21 +22,55 @@ if (!isset($_SESSION['admin'])) {
    Dashboard Statistics
 ===================================================== */
 
-$projects = mysqli_num_rows(
-    mysqli_query($conn, "SELECT * FROM projects")
+$projectQuery = mysqli_query(
+    $conn,
+    "SELECT COUNT(*) AS total FROM projects"
 );
 
-$employees = mysqli_num_rows(
-    mysqli_query($conn, "SELECT * FROM employees")
+$employeeQuery = mysqli_query(
+    $conn,
+    "SELECT COUNT(*) AS total FROM employees"
 );
 
-$clients = mysqli_num_rows(
-    mysqli_query($conn, "SELECT * FROM clients")
+$clientQuery = mysqli_query(
+    $conn,
+    "SELECT COUNT(*) AS total FROM clients"
 );
 
-$messages = mysqli_num_rows(
-    mysqli_query($conn, "SELECT * FROM messages")
+$messageQuery = mysqli_query(
+    $conn,
+    "SELECT COUNT(*) AS total FROM messages"
 );
+
+$projects = mysqli_fetch_assoc($projectQuery)['total'];
+
+$employees = mysqli_fetch_assoc($employeeQuery)['total'];
+
+$clients = mysqli_fetch_assoc($clientQuery)['total'];
+
+$messages = mysqli_fetch_assoc($messageQuery)['total'];
+
+
+/* =====================================================
+   Monthly Project Growth
+===================================================== */
+
+$monthlyProjects = [];
+
+for ($month = 1; $month <= 12; $month++) {
+
+    $query = mysqli_query(
+        $conn,
+        "SELECT COUNT(*) AS total
+         FROM projects
+         WHERE MONTH(created_at) = $month
+         AND YEAR(created_at) = YEAR(CURDATE())"
+    );
+
+    $result = mysqli_fetch_assoc($query);
+
+    $monthlyProjects[] = $result['total'];
+}
 
 /* =====================================================
    Recent Projects
@@ -1281,22 +1315,25 @@ if ($currentHour < 12) {
 
         </div>
 
-
-
         <a href="messages/messages.php">
 
             View
 
         </a>
 
-        </main>
-
-
-    </div>
-
-
+<   /div>
 
 </section>
+
+
+</main>
+
+
+</div>
+
+
+
+       
 
 
 <!-- =====================================================
@@ -1306,9 +1343,11 @@ if ($currentHour < 12) {
 
 <!-- Chart.js -->
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
 
 
+
+<script>
 
 <script>
 
@@ -1316,245 +1355,139 @@ if ($currentHour < 12) {
    Project Distribution Chart
 ===================================================== */
 
-
-const dashboardChart = document.getElementById(
-    "dashboardChart"
-);
-
+const dashboardChart =
+    document.getElementById("dashboardChart");
 
 new Chart(dashboardChart, {
 
+    type: "doughnut",
 
-    type:"doughnut",
+    data: {
 
-
-    data:{
-
-
-        labels:[
-
+        labels: [
             "Projects",
-
             "Employees",
-
             "Clients",
-
             "Messages"
-
         ],
 
+        datasets: [{
 
-        datasets:[{
-
-            data:[
-
+            data: [
                 <?php echo $projects; ?>,
-
                 <?php echo $employees; ?>,
-
                 <?php echo $clients; ?>,
-
                 <?php echo $messages; ?>
-
             ],
 
-
-            backgroundColor:[
-
+            backgroundColor: [
                 "#2563EB",
-
                 "#10B981",
-
                 "#F59E0B",
-
                 "#EF4444"
-
             ],
 
-
-            borderWidth:0
-
+            borderWidth: 0
 
         }]
 
-
     },
 
+    options: {
 
-    options:{
+        responsive: true,
 
+        maintainAspectRatio: false,
 
-        responsive:true,
+        plugins: {
 
+            legend: {
 
-        maintainAspectRatio:false,
+                position: "bottom",
 
+                labels: {
 
-        plugins:{
-
-
-            legend:{
-
-
-                position:"bottom",
-
-
-                labels:{
-
-
-                    usePointStyle:true
-
+                    usePointStyle: true
 
                 }
 
-
             }
-
 
         }
 
-
     }
-
 
 });
 
 
-
-
-
 /* =====================================================
-   Monthly Growth Chart
+   Monthly Project Growth Chart
 ===================================================== */
 
+const growthChart =
+    document.getElementById("growthChart");
 
-const growthChart = document.getElementById(
-    "growthChart"
-);
+new Chart(growthChart, {
 
+    type: "line",
 
+    data: {
 
-new Chart(growthChart,{
-
-
-    type:"line",
-
-
-    data:{
-
-
-        labels:[
-
+        labels: [
             "Jan",
-
             "Feb",
-
             "Mar",
-
             "Apr",
-
             "May",
-
-            "Jun"
-
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
         ],
 
+        datasets: [{
 
+            label: "Projects Created",
 
-        datasets:[{
+            data: <?php echo json_encode($monthlyProjects); ?>,
 
+            borderColor: "#2563EB",
 
-            label:"Growth",
+            backgroundColor: "rgba(37, 99, 235, 0.15)",
 
+            fill: true,
 
-            data:[5,9,12,15,20,24],
-
-
-
-            borderColor:"#2563eb",
-
-
-            backgroundColor:
-            "rgba(37,99,235,.15)",
-
-
-            fill:true,
-
-
-            tension:.4
-
+            tension: 0.4
 
         }]
 
-
     },
 
+    options: {
 
-    options:{
+        responsive: true,
 
+        maintainAspectRatio: false,
 
-        responsive:true,
+        plugins: {
 
+            legend: {
 
-        maintainAspectRatio:false,
-
-
-        plugins:{
-
-
-            legend:{
-
-
-                display:false
-
+                display: false
 
             }
 
-
         }
-
 
     }
 
-
 });
 
-
-
 </script>
 
-
-
-
-<script>
-
-/* =====================================================
-   Live Clock
-===================================================== */
-
-
-function updateClock(){
-
-
-    const now = new Date();
-
-
-    document.getElementById("clock").innerHTML =
-    now.toLocaleTimeString();
-
-
-}
-
-
-
-setInterval(updateClock,1000);
-
-
-updateClock();
-
-
-
-</script>
 
 
 

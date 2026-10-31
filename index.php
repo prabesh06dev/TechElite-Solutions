@@ -446,7 +446,7 @@ $projects = mysqli_query(
                     applications using modern technologies.
                 </p>
 
-                <a href="#" class="service-link">
+                <a href="#contact" class="service-link">
 
                     Learn More →
 
@@ -474,7 +474,7 @@ $projects = mysqli_query(
                     that automate and improve business processes.
                 </p>
 
-                <a href="#" class="service-link">
+                <a href="#contact" class="service-link">
 
                     Learn More →
 
@@ -499,7 +499,7 @@ $projects = mysqli_query(
                     applications for Android and iOS platforms.
                 </p>
 
-                <a href="#" class="service-link">
+                <a href="#contact" class="service-link">
 
                     Learn More →
 
@@ -524,7 +524,7 @@ $projects = mysqli_query(
                     solutions for modern businesses.
                 </p>
 
-                <a href="#" class="service-link">
+                <a href="#contact" class="service-link">
 
                     Learn More →
 
@@ -549,7 +549,7 @@ $projects = mysqli_query(
                     on usability and user experience.
                 </p>
 
-                <a href="#" class="service-link">
+                <a href="#contact" class="service-link">
 
                     Learn More →
 
@@ -574,7 +574,7 @@ $projects = mysqli_query(
                     valuable business information.
                 </p>
 
-                <a href="#" class="service-link">
+                <a href="#contact" class="service-link">
 
                     Learn More →
 
@@ -1109,7 +1109,7 @@ $projects = mysqli_query(
 
                 <div class="team-social">
 
-                  <a href="https://linkedin.com/in/your-profile" target="_blank">
+                  <a href="https://www.linkedin.com/in/sushant-yadav-2a2a9b427" target="_blank">
                         <i class="fa-brands fa-linkedin"></i>
                         
                     </a>
